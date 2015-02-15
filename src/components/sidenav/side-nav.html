@@ -1,0 +1,12 @@
+<md-sidenav class="fs-side-nav md-sidenav-left md-whiteframe-z2" md-component-id="left">
+    <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">Menu</h1>
+    </md-toolbar>
+    <md-content class="fs-menu-items">
+        <md-button ng-repeat="item in menuItems"
+            ng-click="item.onClick()"
+            ng-class="{ 'md-primary md-hue-1': true, 'md-accent': false }">
+            {{ item.text }}
+        </md-button>
+    </md-content>
+</md-sidenav>

@@ -1,0 +1,13 @@
+<div layout="vertical" layout-fill layout-margin>
+
+    <header ng-include="'components/navbar/navbar.html'"></header>
+
+    <md-content>
+        <md-card ng-repeat="shift in workshifts">
+            <div>{{ shift.company }}</div>
+            <div>{{ shift.lengthOfTime }}</div>
+        </md-card>
+    </md-content>
+
+    <menu-button></menu-button>
+</div>
