@@ -1,15 +1,9 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name fasterScaleApp.directive:menuButton
- * @description
- * # menuButton
- */
 angular.module('contractTimer')
   .directive('menuButton', function ($mdSidenav) {
     return {
-        templateUrl: 'menu-button.html',
+        templateUrl: 'components/menu-button/menu-button.html',
         restrict: 'E',
         link: function postLink(scope, element, attrs) {
 

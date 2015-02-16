@@ -6,7 +6,7 @@
  * @description
  * # sideNav
  */
-angular.module('fasterScaleApp')
+angular.module('contractTimer')
     .directive('fsSideNav', ['$mdSidenav',
         '$location',
         '$timeout',
@@ -27,47 +27,43 @@ angular.module('fasterScaleApp')
                     text: 'Edit Current Scale',
                     onClick: function () {
                         // Go to home page where the user can interact with the current scale.
-                        $location.path('/home');
+                        //$location.path('/home');
                         
                         // Close the side-nav.
-                        $mdSidenav('left').close();
+                        //$mdSidenav('left').close();
                     },
                     isSelected: true
                 },
                 {
                     text: 'View Current Scale',
                     onClick: function () {
-                        //$mdSidenav('left').close();
-                        User.setDisplayScale(FasterScale.getScaleId());
-                        $location.path('/display-scale/' + FasterScale.getScaleId());
-                        //$timeout(function () {
-                            //$location.path('/display-scale/' + FasterScale.getScaleId());
-                        //}, 4000);
+                        //User.setDisplayScale(FasterScale.getScaleId());
+                        //$location.path('/display-scale/' + FasterScale.getScaleId());
                     },
                     isSelected: false
                 },
                 {
                     text: 'New Scale',
                     onClick: function () {
-                        $mdSidenav('left').close();
-                        User.addScale();
-                        $timeout(function () {
-                            $location.path('/home');
-                        }, 700);
+                        //$mdSidenav('left').close();
+                        //User.addScale();
+                        //$timeout(function () {
+                            //$location.path('/home');
+                        //}, 700);
                     },
                     isSelected: false
                 },
                 {
                     text: 'Previous Scales',
                     onClick: function () {
-                        $location.path('/previous-scales');
+                        // previous scales function 
                     },
                     isSelected: false
                 },
                 {
                     text: 'Logout',
                     onClick: function () {
-                        Authentication.logout();
+                        // logout function
                     },
                     isSelected: false
                 },
