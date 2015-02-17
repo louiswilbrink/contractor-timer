@@ -1,9 +1,14 @@
 'use strict';
 
-angular.module('contractTimer', [
-    'ngAnimate', 'ngCookies', 'ngTouch', 
-    'ngSanitize', 'ngRoute', 'ngMaterial'])
+angular.module('contractTimer', ['ngAnimate', 
+    'ngCookies', 
+    'ngTouch', 
+    'ngSanitize', 
+    'ngRoute', 
+    'ngMaterial',
+    'firebase'])
     .config(function ($routeProvider, $mdThemingProvider) {
+
         $mdThemingProvider.theme('default')
             .primaryColor('indigo')
             .accentColor('pink')

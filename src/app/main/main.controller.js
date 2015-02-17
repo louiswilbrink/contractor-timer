@@ -13,4 +13,9 @@ angular.module('contractTimer')
             lengthOfTime: 4.0,
             time: Date('2015-01-18 15:00:00')
         }];
+
+
+        $scope.$on('hello', function () {
+            console.log('yoyo');
+        });
     }]);
