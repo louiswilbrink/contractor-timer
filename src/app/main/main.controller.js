@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('contractTimer')
-    .controller('MainCtrl', function ($scope) {
+    .controller('MainCtrl', ['$scope', 'Company', function ($scope, Company) {
 
         $scope.workshifts = [{
             company: 'Nike',
@@ -13,4 +13,4 @@ angular.module('contractTimer')
             lengthOfTime: 4.0,
             time: Date('2015-01-18 15:00:00')
         }];
-    });
+    }]);

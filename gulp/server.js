@@ -36,12 +36,12 @@ gulp.task('serve', ['watch'], function () {
     paths.tmp + '/serve',
     paths.src
   ], [
-    paths.tmp + '/serve/{app,components}/**/*.css',
-    paths.src + '/{app,components}/**/*.js',
+    paths.tmp + '/serve/{app,components,services}/**/*.css',
+    paths.src + '/{app,components,services}/**/*.js',
     paths.src + 'src/assets/images/**/*',
     paths.tmp + '/serve/*.html',
-    paths.tmp + '/serve/{app,components}/**/*.html',
-    paths.src + '/{app,components}/**/*.html'
+    paths.tmp + '/serve/{app,components,services}/**/*.html',
+    paths.src + '/{app,components,services}/**/*.html'
   ]);
 });
 
