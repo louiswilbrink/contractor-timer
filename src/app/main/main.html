@@ -4,9 +4,18 @@
 
     <md-content>
         <md-list>
-            <md-item layout="row" layout-margin ng-repeat="shift in workshifts">
-                <div flex="50">{{ shift.company }}</div>
-                <div flex="30">{{ shift.lengthOfTime }}</div>
+            <!--Column Names-->
+            <md-item layout="row" layout-margin>
+                <div flex>start time</div>
+                <div flex>end time</div>
+                <div flex>length</div>
+                <md-divider></md-divider>
+            </md-item>
+            <md-item ng-if="shift.company == displayCompany" layout="row" layout-margin ng-repeat="shift in workshifts | orderBy:'startTime'">
+                <div flex>{{ shift.company }}</div>
+                <div flex>{{ shift.startTime }}</div>
+                <div flex>{{ shift.endTime }}</div>
+                <div flex>{{ shift.endTime - shift.startTime }}</div>
                 <md-divider></md-divider>
             </md-item>
         </md-list>

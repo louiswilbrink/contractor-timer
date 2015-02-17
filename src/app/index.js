@@ -19,8 +19,11 @@ angular.module('contractTimer', ['ngAnimate',
                 templateUrl: 'app/main/main.html',
                 controller: 'MainCtrl',
                 resolve: {
-                    initialCompany: ['Company', function (Company) {
-                        return Company.setCompany('nike');
+                    displayCompany: function () {
+                        return 'citibank';
+                    },
+                    workshifts: ['Company', function (Company) {
+                        return Company.getWorkshifts();
                     }]
                 }
             })
