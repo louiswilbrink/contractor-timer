@@ -17,7 +17,12 @@ angular.module('contractTimer', ['ngAnimate',
         $routeProvider
             .when('/', {
                 templateUrl: 'app/main/main.html',
-                controller: 'MainCtrl'
+                controller: 'MainCtrl',
+                resolve: {
+                    initialCompany: ['Company', function (Company) {
+                        return Company.setCompany('nike');
+                    }]
+                }
             })
             .otherwise({
                 redirectTo: '/'
