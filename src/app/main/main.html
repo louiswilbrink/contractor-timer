@@ -1,13 +1,21 @@
-<div layout="vertical" layout-fill layout-margin>
+<div layout="column" layout-fill layout-margin>
 
     <header ng-include="'components/navbar/navbar.html'"></header>
 
     <md-content>
-        <md-card ng-repeat="shift in workshifts">
-            <div>{{ shift.company }}</div>
-            <div>{{ shift.lengthOfTime }}</div>
-        </md-card>
+        <md-list>
+            <md-item layout="row" layout-margin ng-repeat="shift in workshifts">
+                <div flex="50">{{ shift.company }}</div>
+                <div flex="30">{{ shift.lengthOfTime }}</div>
+                <md-divider></md-divider>
+            </md-item>
+        </md-list>
+        <md-input-container>
+            <label>Title</label>
+            <input ng-model="timeInput">
+        </md-input-container>
     </md-content>
 
+    <side-nav></side-nav>
     <menu-button></menu-button>
 </div>

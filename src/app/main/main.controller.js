@@ -2,6 +2,7 @@
 
 angular.module('contractTimer')
     .controller('MainCtrl', function ($scope) {
+
         $scope.workshifts = [{
             company: 'Nike',
             lengthOfTime: 1.5,
