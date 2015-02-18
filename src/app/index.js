@@ -7,11 +7,11 @@ angular.module('contractTimer', ['ngAnimate',
     'ngRoute', 
     'ngMaterial',
     'firebase'])
-    .config(function ($routeProvider /*$mdThemingProvider*/) {
+    .config(function ($routeProvider, $mdThemingProvider) {
 
         //$mdThemingProvider.theme('default')
-            //.primaryColor('indigo')
-            //.accentColor('pink')
+            //.primaryColor('green')
+            //.accentColor('orange')
             //.warnColor('red');
 
         $routeProvider

@@ -4,9 +4,13 @@ angular.module('contractTimer')
     .controller('MainCtrl', ['$scope', 
         'workshifts', 
         'displayCompany', 
+        '$mdToast',
+        '$timeout',
         'Company', function ($scope, 
         allWorkshifts, 
         displayCompany, 
+        $mdToast,
+        $timeout,
         Company) {
 
         function convertToMinutes (hours, minutes) {
@@ -79,7 +83,26 @@ angular.module('contractTimer')
             };
             
             $scope.workshifts.$save().then(function () {
-                // Add toast.
+
+                $timeout(function () {
+                    var content = 'louis';
+
+                    if (stop - start <= 60) {
+                        content = 'Good Job!';
+                    }
+                    else if (stop - start > 60 && stop - start <= 120) {
+                        content = 'Superb!';
+                    }
+                    else if (stop - start > 120) {
+                        content = '(Take a short break)';
+                    }
+                        
+                    $mdToast.show($mdToast.simple()
+                        .content(content)
+                        .position('top right')
+                        .hideDelay(1200))
+                }, 1200);
+
                 $scope.total = getTotalTimeWorked();
             });
 
