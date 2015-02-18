@@ -3,30 +3,39 @@
     <header ng-include="'components/navbar/navbar.html'"></header>
 
     <md-content>
+    <md-subheader class="md-primary">{{ displayCompany }}</md-subheader>
         <md-list>
             <!--Column Names-->
             <md-item layout="row" layout-margin>
-                <div ng-if="showAllCompanies" flex>Company</div>
-                <div ng-if="!showAllCompanies" flex>Start</div>
-                <div ng-if="!showAllCompanies" flex>Stop</div>
-                <div flex>Length</div>
-                <md-divider></md-divider>
+                <md-item-content flex> 
+                    <div ng-if="showAllCompanies" flex>Company</div>
+                    <div ng-if="!showAllCompanies" flex>Start</div>
+                    <div ng-if="!showAllCompanies" flex>Stop</div>
+                    <div flex>Length</div>
+                </md-item-content>
             </md-item>
             <!--Time Log-->
             <md-item ng-if="shift.company == displayCompany || showAllCompanies" layout="row" layout-margin ng-repeat="shift in workshifts | orderBy:'startTime'">
-                <div ng-if="showAllCompanies" flex>{{ shift.company }}</div>
-                <div ng-if="!showAllCompanies" flex>{{ shift.start }}</div>
-                <div ng-if="!showAllCompanies" flex>{{ shift.stop }}</div>
-                <div flex>{{ shift.stop - shift.start }}</div>
-                <md-divider></md-divider>
+                <md-item-content flex> 
+                    <div ng-if="showAllCompanies" flex>{{ shift.company }}</div>
+                    <div ng-if="!showAllCompanies" flex>{{ shift.start }}</div>
+                    <div ng-if="!showAllCompanies" flex>{{ shift.stop }}</div>
+                    <div flex>{{ shift.stop - shift.start }}</div>
+                </md-item-content>
             </md-item>
         </md-list>
-        <md-input-container>
-            <label>Title</label>
-            <input ng-model="timeInput">
-        </md-input-container>
     </md-content>
-
+    <md-content layout="row" layout-align="center">
+            <md-input-container>
+                <label>Start</label>
+                <input ng-model="start"/>
+            </md-input-container>
+            <md-input-container>
+                <label>Stop</label>
+                <input ng-model="stop"/>
+            </md-input-container>
+            <md-button class="md-primary" ng-click="addTime()">Add Time</md-button>
+    </md-content>
     <side-nav></side-nav>
     <menu-button></menu-button>
 </div>

@@ -13,7 +13,7 @@ angular.module('contractTimer')
 
         $scope.workshifts = allWorkshifts;
 
-        $scope.showAllCompanies = true;
+        $scope.showAllCompanies = false;
 
         $scope.$on('displayCompanySelected', function (event, displayCompany) {
             $scope.displayCompany = displayCompany;
