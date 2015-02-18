@@ -27,6 +27,10 @@ angular.module('contractTimer', ['ngAnimate',
                     }]
                 }
             })
+            .when('/list', {
+                templateUrl: 'app/list/list.html',
+                controller: 'ListCtrl'
+            })
             .otherwise({
                 redirectTo: '/'
             });
