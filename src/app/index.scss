@@ -1,1 +1,17 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700,700italic,400italic);
+
+.main {
+    menu-button {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+    }
+    .delete-icon {
+        width: 24px;
+        height: 24px;
+    }
+    .total {
+        font-size: 56px;
+        font-weight: normal;
+    }
+}

@@ -1,9 +1,12 @@
-<div layout="column" layout-fill layout-margin>
+<div class="main" layout="column" layout-fill layout-margin>
 
     <header ng-include="'components/navbar/navbar.html'"></header>
 
+    <div ng-if="!showAllCompanies"><md-subheader class="md-primary">{{ displayCompany }}</md-subheader></div>
+    <md-content layout="row" layout-align="center">
+        <h1 class="total">{{ total | inHours }}</h1>
+    </md-content>
     <md-content>
-    <md-subheader class="md-primary">{{ displayCompany }}</md-subheader>
         <md-list>
             <!--Column Names-->
             <md-item layout="row" layout-margin>
@@ -15,17 +18,20 @@
                 </md-item-content>
             </md-item>
             <!--Time Log-->
-            <md-item ng-if="shift.company == displayCompany || showAllCompanies" layout="row" layout-margin ng-repeat="shift in workshifts | orderBy:'stop'">
+            <md-item ng-if="shift.company == displayCompany || showAllCompanies" layout="row" layout-margin ng-repeat="(key, shift) in workshifts | orderBy:'stop'">
                 <md-item-content flex> 
                     <div ng-if="showAllCompanies" flex>{{ shift.company }}</div>
                     <div ng-if="!showAllCompanies" flex>{{ shift.start | inClockTime }}</div>
                     <div ng-if="!showAllCompanies" flex>{{ shift.stop | inClockTime }}</div>
                     <div flex>{{ shift.stop - shift.start | inHours }}</div>
+                    <div flex="5" ng-click="deleteShift(key)">
+                        <md-icon class="delete-icon" icon="assets/images/ic_delete_24dp.png"></md-icon>
+                    </div>
                 </md-item-content>
             </md-item>
         </md-list>
     </md-content>
-    <md-content layout="row" layout-align="center">
+    <md-content ng-hide="showAllCompanies" layout="row" layout-align="center">
             <md-input-container>
                 <label>Start</label>
                 <input ng-model="start"/>

@@ -17,11 +17,48 @@ angular.module('contractTimer')
             return (hours * 60) + minutes;
         }
 
+        function getTotalTimeWorked () {
+            if (!$scope.workshifts) {
+                return 0;
+            }
+
+            else {
+                var total = 0;
+                if ($scope.showAllCompanies) {
+                    angular.forEach($scope.workshifts, function (workshift) {
+                        total += workshift.stop - workshift.start;
+                    });
+                }
+                else {
+                    angular.forEach($scope.workshifts, function (workshift) {
+                        if (workshift.company === $scope.displayCompany) {
+                            total += workshift.stop - workshift.start;
+                        }
+                    });
+               }
+
+                return total;
+            }
+        }
+
         $scope.displayCompany = displayCompany;
 
         $scope.workshifts = allWorkshifts;
 
+        $scope.total = getTotalTimeWorked();
+
         $scope.showAllCompanies = false;
+
+        $scope.deleteShift = function (key) {
+
+            if ($scope.workshifts[key]) {
+                delete $scope.workshifts[key];
+                $scope.workshifts.$save().then(function () {
+                    console.log('saved!');
+                });
+                $scope.total = getTotalTimeWorked();
+            }
+        };
 
         $scope.addTime = function () {
 
@@ -43,16 +80,21 @@ angular.module('contractTimer')
             
             $scope.workshifts.$save().then(function () {
                 // Add toast.
-                console.log('saved!');
+                $scope.total = getTotalTimeWorked();
             });
+
+            $scope.start = '';
+            $scope.stop = '';
         };
 
         $scope.$on('displayCompanySelected', function (event, displayCompany) {
             $scope.displayCompany = displayCompany;
             $scope.showAllCompanies = false;
+            $scope.total = getTotalTimeWorked();
         });
 
         $scope.$on('showAllCompaniesSelected', function () {
             $scope.showAllCompanies = true;
+            $scope.total = getTotalTimeWorked();
         });
     }]);
