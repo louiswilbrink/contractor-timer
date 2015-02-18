@@ -18,9 +18,9 @@
             <md-item ng-if="shift.company == displayCompany || showAllCompanies" layout="row" layout-margin ng-repeat="shift in workshifts | orderBy:'stop'">
                 <md-item-content flex> 
                     <div ng-if="showAllCompanies" flex>{{ shift.company }}</div>
-                    <div ng-if="!showAllCompanies" flex>{{ shift.start }}</div>
-                    <div ng-if="!showAllCompanies" flex>{{ shift.stop }}</div>
-                    <div flex>{{ shift.stop - shift.start }}</div>
+                    <div ng-if="!showAllCompanies" flex>{{ shift.start | inClockTime }}</div>
+                    <div ng-if="!showAllCompanies" flex>{{ shift.stop | inClockTime }}</div>
+                    <div flex>{{ shift.stop - shift.start | inHours }}</div>
                 </md-item-content>
             </md-item>
         </md-list>
