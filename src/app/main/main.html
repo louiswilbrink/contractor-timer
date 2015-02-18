@@ -12,8 +12,9 @@
                 <div flex>Length</div>
                 <md-divider></md-divider>
             </md-item>
+            <!--Time Log-->
             <md-item ng-if="shift.company == displayCompany || showAllCompanies" layout="row" layout-margin ng-repeat="shift in workshifts | orderBy:'startTime'">
-                <div flex>{{ shift.company }}</div>
+                <div ng-if="showAllCompanies" flex>{{ shift.company }}</div>
                 <div ng-if="!showAllCompanies" flex>{{ shift.start }}</div>
                 <div ng-if="!showAllCompanies" flex>{{ shift.stop }}</div>
                 <div flex>{{ shift.stop - shift.start }}</div>

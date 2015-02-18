@@ -15,7 +15,12 @@ angular.module('contractTimer')
 
         $scope.showAllCompanies = true;
 
-        $scope.$on('hello', function () {
-            console.log('yoyo');
+        $scope.$on('displayCompanySelected', function (event, displayCompany) {
+            $scope.displayCompany = displayCompany;
+            $scope.showAllCompanies = false;
+        });
+
+        $scope.$on('showAllCompaniesSelected', function () {
+            $scope.showAllCompanies = true;
         });
     }]);

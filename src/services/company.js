@@ -12,7 +12,18 @@ angular.module('contractTimer')
             return workshifts.$loaded();
         }
 
+        function setDisplayCompany (companyName) {
+
+            $rootScope.$broadcast('displayCompanySelected', companyName);
+        }
+
+        function showAllCompanies () {
+            $rootScope.$broadcast('showAllCompaniesSelected');
+        }
+
         return {
+            showAllCompanies: showAllCompanies,
+            setDisplayCompany: setDisplayCompany,
             getWorkshifts: getWorkshifts
         }
     }]);

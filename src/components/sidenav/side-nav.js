@@ -7,7 +7,7 @@
  * # sideNav
  */
 angular.module('contractTimer')
-    .directive('sideNav', ['$mdSidenav', function ($mdSidenav) {
+    .directive('sideNav', ['$mdSidenav', 'Company', function ($mdSidenav, Company) {
         
         return {
             templateUrl: 'components/sidenav/side-nav.html',
@@ -16,26 +16,37 @@ angular.module('contractTimer')
                 scope.menuItems = [{
                     text: 'Nike',
                     onClick: function () {
+                        Company.setDisplayCompany('nike');
                     }
                 },
                 {
                     text: 'Facebook',
                     onClick: function () {
+                        Company.setDisplayCompany('facebook');
                     }
                 },
                 {
                     text: 'Amazon',
                     onClick: function () {
+                        Company.setDisplayCompany('amazon');
                     }
                 },
                 {
                     text: 'Verizon',
                     onClick: function () {
+                        Company.setDisplayCompany('verizon');
                     }
                 },
                 {
                     text: 'Citibank',
                     onClick: function () {
+                        Company.setDisplayCompany('citibank');
+                    }
+                },
+                {
+                    text: 'Show All Companies',
+                    onClick: function () {
+                        Company.showAllCompanies();
                     }
                 },
                 {
